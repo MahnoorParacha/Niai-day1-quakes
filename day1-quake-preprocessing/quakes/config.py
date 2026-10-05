@@ -8,7 +8,13 @@ PROCESSED_DIR = ROOT / "data" / "processed"
 SEED = 42
 TARGET = "big_quake"
 
-# TODO (Task 4 and 5): fill these in after you have explored the data.
-NUMERIC: list[str] = []   # numeric feature columns
-NOMINAL: list[str] = []   # categorical feature columns (one-hot encoded)
-LEAKY: list[str] = []     # columns that encode the magnitude: must be dropped
+NUMERIC: list[str] = [
+    "depth_km", "lon", "lat", "abs_lat", "is_shallow",
+    "nst", "nst_missing", "gap", "dmin", "rms",
+    "hour", "dayofweek", "update_lag_hours", "is_reviewed",
+]
+NOMINAL: list[str] = ["region", "net"]
+LEAKY: list[str] = [
+    "title", "sig", "mmi", "cdi", "felt", "alert",   # required by the tests
+    "tsunami", "magType", "types",
+]
